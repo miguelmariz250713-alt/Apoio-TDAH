@@ -1,104 +1,779 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Apoio TDAH | Curso</title>
-<style>
-:root{--blue:#173f73;--blue2:#2b73c6;--light:#eef6ff;--text:#17233c;--muted:#60708a;--white:#fff}
-*{box-sizing:border-box}html{scroll-behavior:smooth}
-body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f5f8fc;color:var(--text);line-height:1.65}
-header{background:linear-gradient(135deg,#123765,#2d7bd0);color:white}
-nav{max-width:1100px;margin:auto;padding:18px 22px;display:flex;align-items:center;justify-content:space-between}
-.logo{font-size:22px;font-weight:800}.logo span{font-weight:400}
-nav a{color:white;text-decoration:none;margin-left:18px;font-size:14px}
-.hero{max-width:1100px;margin:auto;padding:70px 22px 85px;display:grid;grid-template-columns:1.4fr .8fr;gap:35px;align-items:center}
-.hero h1{font-size:52px;line-height:1.05;margin:0 0 18px}.hero p{font-size:19px;max-width:650px}
-.btn{display:inline-block;background:white;color:var(--blue);padding:13px 20px;border-radius:10px;text-decoration:none;font-weight:700;margin-top:10px}
-.hero-card{background:#ffffff18;border:1px solid #ffffff35;border-radius:20px;padding:25px;backdrop-filter:blur(4px)}
-main{max-width:1100px;margin:auto;padding:45px 22px}
-section{margin-bottom:45px}.title{text-align:center;margin-bottom:28px}.title h2{font-size:31px;margin:0 0 8px;color:var(--blue)}.title p{color:var(--muted)}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.card{background:white;border-radius:17px;padding:23px;box-shadow:0 7px 24px #18365d12;border:1px solid #e5edf7}
-.card h3{margin-top:0;color:var(--blue)}.number{display:inline-flex;width:35px;height:35px;border-radius:50%;align-items:center;justify-content:center;background:var(--light);color:var(--blue);font-weight:800;margin-bottom:12px}
-.progress{height:10px;background:#dce8f6;border-radius:20px;overflow:hidden}.progress div{height:100%;width:12.5%;background:var(--blue2)}
-.faq details{background:white;border-radius:12px;padding:16px 20px;margin:10px 0;box-shadow:0 3px 12px #18365d0d}.faq summary{font-weight:700;cursor:pointer;color:var(--blue)}
-.note{background:#fff7df;border-left:5px solid #e0a000;padding:20px;border-radius:10px}
-footer{background:#102d51;color:#dce9f8;text-align:center;padding:35px 20px}
-@media(max-width:750px){.hero{grid-template-columns:1fr;padding-top:50px}.hero h1{font-size:40px}.grid{grid-template-columns:1fr}nav{flex-direction:column;gap:12px}nav a{margin:0 7px}}
+<!DOCTYPE html> <html lang="pt-BR"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <meta name="theme-color" content="#5b4de8"> <title>Apoio TDAH | Curso</title> <style> :root{ --primary:#5b4de8; --primary2:#7c6cff; --dark:#17152d; --text:#292743; --muted:#706c85; --bg:#f7f7fc; --white:#fff; --green:#20b77a; --yellow:#ffb52e; --border:#e9e7f2; --shadow:0 15px 45px rgba(53,45,120,.10); }
+*{box-sizing:border-box;margin:0;padding:0}
+
+html{scroll-behavior:smooth}
+
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:var(--bg);
+color:var(--text);
+line-height:1.65;
+}
+
+a{text-decoration:none;color:inherit}
+
+header{
+background:
+radial-gradient(circle at 85% 15%,rgba(255,255,255,.18),transparent 25%),
+linear-gradient(135deg,#21195e,#5b4de8 55%,#7c6cff);
+color:white;
+}
+
+nav{
+max-width:1150px;
+margin:auto;
+padding:20px 22px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-size:22px;
+font-weight:900;
+}
+
+.logo span{font-weight:400;opacity:.85}
+
+.nav-links{
+display:flex;
+gap:22px;
+}
+
+.nav-links a{
+font-size:14px;
+font-weight:bold;
+opacity:.9;
+}
+
+.hero{
+max-width:1150px;
+margin:auto;
+padding:75px 22px 95px;
+display:grid;
+grid-template-columns:1.2fr .8fr;
+gap:50px;
+align-items:center;
+}
+
+.badge{
+display:inline-block;
+padding:8px 14px;
+border-radius:30px;
+background:#ffffff18;
+border:1px solid #ffffff30;
+font-size:13px;
+font-weight:bold;
+margin-bottom:20px;
+}
+
+.hero h1{
+font-size:clamp(42px,6vw,68px);
+line-height:1.03;
+letter-spacing:-2px;
+margin-bottom:20px;
+}
+
+.hero h1 span{color:#ddd8ff}
+
+.hero p{
+font-size:18px;
+color:#eeeaff;
+max-width:650px;
+margin-bottom:25px;
+}
+
+.buttons{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+}
+
+.btn{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+padding:14px 20px;
+border-radius:13px;
+font-weight:800;
+cursor:pointer;
+border:0;
+transition:.25s;
+}
+
+.btn:hover{
+transform:translateY(-2px);
+}
+
+.primary{
+background:white;
+color:#4034b7;
+}
+
+.secondary{
+background:#ffffff15;
+border:1px solid #ffffff40;
+color:white;
+}
+
+.hero-card{
+background:#ffffff15;
+border:1px solid #ffffff30;
+border-radius:25px;
+padding:28px;
+backdrop-filter:blur(12px);
+box-shadow:0 20px 60px #0002;
+}
+
+.hero-icon{
+font-size:38px;
+margin-bottom:12px;
+}
+
+.hero-card h3{
+font-size:25px;
+margin-bottom:8px;
+}
+
+.hero-progress{
+height:9px;
+background:#ffffff25;
+border-radius:20px;
+overflow:hidden;
+margin:20px 0 8px;
+}
+
+.hero-progress div{
+height:100%;
+width:0%;
+background:white;
+transition:.5s;
+}
+
+main{
+max-width:1150px;
+margin:auto;
+padding:65px 22px;
+}
+
+section{
+margin-bottom:80px;
+}
+
+.title{
+text-align:center;
+max-width:700px;
+margin:0 auto 35px;
+}
+
+.eyebrow{
+color:var(--primary);
+font-size:12px;
+font-weight:900;
+text-transform:uppercase;
+letter-spacing:1.5px;
+margin-bottom:8px;
+}
+
+.title h2{
+font-size:clamp(29px,4vw,42px);
+color:var(--dark);
+margin-bottom:10px;
+}
+
+.title p{
+color:var(--muted);
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
+
+.card{
+background:white;
+border:1px solid var(--border);
+border-radius:21px;
+padding:24px;
+box-shadow:var(--shadow);
+transition:.25s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+box-shadow:0 20px 50px #352d781f;
+}
+
+.icon{
+width:52px;
+height:52px;
+display:flex;
+align-items:center;
+justify-content:center;
+background:#f0efff;
+border-radius:15px;
+font-size:25px;
+margin-bottom:15px;
+}
+
+.card h3{
+color:var(--dark);
+margin-bottom:8px;
+}
+
+.card p{
+color:var(--muted);
+font-size:15px;
+}
+
+.progress-card{
+background:linear-gradient(135deg,#21195e,#5b4de8);
+color:white;
+padding:27px;
+border-radius:24px;
+box-shadow:0 20px 50px #4539b533;
+margin-bottom:25px;
+}
+
+.progress-top{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:14px;
+}
+
+.progress-percent{
+font-size:25px;
+font-weight:900;
+}
+
+.progress-bar{
+height:12px;
+background:#ffffff25;
+border-radius:20px;
+overflow:hidden;
+}
+
+.progress-fill{
+width:0%;
+height:100%;
+background:white;
+border-radius:20px;
+transition:.5s;
+}
+
+.progress-info{
+font-size:13px;
+color:#e8e5ff;
+margin-top:9px;
+}
+
+.module-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:18px;
+}
+
+.module-number{
+width:43px;
+height:43px;
+display:flex;
+align-items:center;
+justify-content:center;
+background:#f0efff;
+color:var(--primary);
+border-radius:13px;
+font-weight:900;
+margin-bottom:14px;
+}
+
+.module.completed{
+border-color:#b8ead6;
+background:#f7fffb;
+}
+
+.module.completed .module-number{
+background:#d9f8eb;
+color:#16865d;
+}
+
+.module-footer{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-top:17px;
+gap:10px;
+}
+
+.module-status{
+font-size:12px;
+font-weight:bold;
+color:var(--muted);
+}
+
+.complete-btn{
+border:0;
+background:#eeedff;
+color:var(--primary);
+padding:9px 13px;
+border-radius:9px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.module.completed .complete-btn{
+background:#d9f8eb;
+color:#16865d;
+}
+
+.lesson-area{
+display:none;
+}
+
+.lesson-area.active{
+display:block;
+}
+
+.lesson{
+background:white;
+border-radius:27px;
+border:1px solid var(--border);
+box-shadow:var(--shadow);
+overflow:hidden;
+}
+
+.lesson-header{
+background:linear-gradient(135deg,#21195e,#5b4de8);
+color:white;
+padding:35px;
+}
+
+.lesson-header small{
+opacity:.75;
+font-weight:bold;
+}
+
+.lesson-header h2{
+font-size:32px;
+margin-top:7px;
+}
+
+.lesson-body{
+padding:35px;
+}
+
+.lesson-body h3{
+font-size:21px;
+margin:25px 0 8px;
+color:var(--dark);
+}
+
+.lesson-body h3:first-child{
+margin-top:0;
+}
+
+.lesson-body p{
+color:var(--muted);
+margin-bottom:12px;
+}
+
+.lesson-body ul{
+padding-left:22px;
+color:var(--muted);
+}
+
+.lesson-body li{
+margin:7px 0;
+}
+
+.highlight{
+background:#f2f0ff;
+border-left:4px solid var(--primary);
+padding:17px;
+border-radius:10px;
+margin:20px 0;
+color:#49436f;
+}
+
+.lesson-nav{
+display:flex;
+justify-content:space-between;
+gap:12px;
+padding:25px 35px;
+border-top:1px solid var(--border);
+background:#fafaff;
+}
+
+.lesson-nav button{
+border:0;
+padding:12px 17px;
+border-radius:11px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.prev{
+background:#eceaf5;
+color:var(--text);
+}
+
+.next{
+background:var(--primary);
+color:white;
+}
+
+.faq{
+max-width:850px;
+margin:auto;
+}
+
+.faq details{
+background:white;
+border:1px solid var(--border);
+border-radius:15px;
+margin:10px 0;
+box-shadow:0 5px 20px #2823500c;
+}
+
+.faq summary{
+padding:18px 20px;
+cursor:pointer;
+font-weight:bold;
+list-style:none;
+}
+
+.faq summary::-webkit-details-marker{
+display:none;
+}
+
+.faq p{
+padding:0 20px 20px;
+color:var(--muted);
+}
+
+.cta{
+background:linear-gradient(135deg,#21195e,#5b4de8);
+color:white;
+text-align:center;
+border-radius:28px;
+padding:50px 25px;
+}
+
+.cta h2{
+font-size:34px;
+margin-bottom:10px;
+}
+
+.cta p{
+color:#e8e5ff;
+max-width:600px;
+margin:0 auto 22px;
+}
+
+footer{
+background:#14122b;
+color:#aaa6c2;
+text-align:center;
+padding:40px 20px;
+}
+
+footer strong{
+color:white;
+font-size:19px;
+}
+
+#topBtn{
+position:fixed;
+right:18px;
+bottom:18px;
+width:48px;
+height:48px;
+border:0;
+border-radius:50%;
+background:var(--primary);
+color:white;
+font-size:20px;
+cursor:pointer;
+box-shadow:0 10px 30px #4539b54d;
+display:none;
+z-index:10;
+}
+
+@media(max-width:800px){
+
+nav{
+flex-direction:column;
+gap:12px;
+}
+
+.nav-links{
+gap:14px;
+}
+
+.hero{
+grid-template-columns:1fr;
+padding-top:55px;
+}
+
+.grid,
+.module-grid{
+grid-template-columns:1fr;
+}
+
+main{
+padding:50px 17px;
+}
+
+.lesson-header,
+.lesson-body{
+padding:25px;
+}
+
+.lesson-header h2{
+font-size:27px;
+}
+
+.lesson-nav{
+padding:20px;
+}
+
+.lesson-nav button{
+flex:1;
+}
+
+.hero h1{
+letter-spacing:-1px;
+}
+}
+
+@media(max-width:500px){
+
+.nav-links a{
+font-size:12px;
+}
+
+.buttons{
+flex-direction:column;
+}
+
+.btn{
+width:100%;
+}
+
+.lesson-nav{
+flex-direction:column;
+}
+}
 </style>
-</head>
-<body>
-<header id="inicio">
-<nav>
-<div class="logo">🧠 Apoio <span>TDAH</span></div>
-<div><a href="#curso">Curso</a><a href="#modulos">Módulos</a><a href="#faq">FAQ</a></div>
-</nav>
-<div class="hero">
-<div>
-<h1>Entenda o TDAH de forma simples.</h1>
-<p>Um curso introdutório para aprender sobre atenção, hiperatividade, impulsividade, avaliação, estudos, rotina e formas de apoio.</p>
-<a class="btn" href="#modulos">Começar o curso →</a>
-</div>
-<div class="hero-card">
-<h3>📚 Apoio TDAH</h3>
-<p><b>8 módulos</b> de conteúdo educativo</p>
-<p>⏱️ Estudo no seu ritmo</p>
-<p>🎯 Linguagem simples e objetiva</p>
-</div>
-</div>
-</header>
 
-<main>
-<section id="curso">
-<div class="title"><h2>O que você vai aprender</h2><p>Conteúdo organizado para facilitar o aprendizado.</p></div>
-<div class="grid">
-<div class="card"><h3>🧠 Conceitos</h3><p>O que é TDAH e como ele pode se manifestar.</p></div>
-<div class="card"><h3>🔎 Identificação</h3><p>Como funciona uma avaliação e por que o diagnóstico é profissional.</p></div>
-<div class="card"><h3>📖 Estratégias</h3><p>Ideias de organização para estudos, tarefas e rotina.</p></div>
-</div>
-</section>
+</head> <body> <header id="inicio"> <nav> <div class="logo">🧠 Apoio <span>TDAH</span></div> <div class="nav-links"> <a href="#curso">Curso</a> <a href="#modulos">Módulos</a> <a href="#aulas">Aulas</a> <a href="#faq">FAQ</a> </div> </nav> <div class="hero"> <div> <div class="badge">✨ Curso educativo introdutório</div> <h1> Entenda o TDAH de forma <span>simples.</span> </h1> <p> Uma jornada educativa para compreender conceitos relacionados ao TDAH, organização, estudos, avaliação e formas de apoio. </p> <div class="buttons"> <a class="btn primary" href="#modulos">🚀 Começar o curso</a> <a class="btn secondary" href="#curso">Conhecer o conteúdo</a> </div> </div> <div class="hero-card"> <div class="hero-icon">🧠</div> <h3>Apoio TDAH</h3> <p>8 módulos educativos para você estudar no seu ritmo.</p> <div class="hero-progress"> <div id="heroProgress"></div> </div>
+<small id="heroText">0 de 8 módulos concluídos</small>
 
-<section id="modulos">
-<div class="title"><h2>📚 Módulos do curso</h2><p>Você pode estudar na ordem que preferir.</p></div>
-<div class="card" style="margin-bottom:20px"><b>Progresso demonstrativo</b><div class="progress" style="margin-top:12px"><div></div></div><small style="color:#60708a">1 de 8 módulos</small></div>
-<div class="grid">
-<div class="card"><div class="number">1</div><h3>Entendendo o TDAH</h3><p>Conceito geral, neurodesenvolvimento e diferenças individuais.</p></div>
-<div class="card"><div class="number">2</div><h3>Desatenção</h3><p>Exemplos de dificuldades de atenção, organização e conclusão de tarefas.</p></div>
-<div class="card"><div class="number">3</div><h3>Hiperatividade e impulsividade</h3><p>Como esses sinais podem aparecer em diferentes situações.</p></div>
-<div class="card"><div class="number">4</div><h3>TDAH e estudos</h3><p>Planejamento, divisão de tarefas, lembretes e redução de distrações.</p></div>
-<div class="card"><div class="number">5</div><h3>TDAH ao longo da vida</h3><p>Como as manifestações e necessidades podem mudar com a idade.</p></div>
-<div class="card"><div class="number">6</div><h3>Avaliação e diagnóstico</h3><p>O papel dos profissionais e a importância de analisar a história individual.</p></div>
-<div class="card"><div class="number">7</div><h3>Tratamento e apoio</h3><p>Abordagens que podem fazer parte do acompanhamento, conforme orientação profissional.</p></div>
-<div class="card"><div class="number">8</div><h3>Mitos e fatos</h3><p>Informações para diferenciar conceitos comuns de afirmações sem base adequada.</p></div>
-</div>
-</section>
+</div> </div> </header> <main> <section id="curso"> <div class="title"> <div class="eyebrow">Sobre o curso</div> <h2>Aprenda no seu ritmo</h2> <p> Conteúdo organizado para tornar os principais conceitos mais fáceis de entender. </p> </div> <div class="grid"> <div class="card"> <div class="icon">🧠</div> <h3>Conceitos claros</h3> <p> Conheça conceitos básicos relacionados ao TDAH e às suas diferentes manifestações. </p> </div> <div class="card"> <div class="icon">📚</div> <h3>8 módulos</h3> <p> Uma sequência de aulas introdutórias para você avançar gradualmente. </p> </div> <div class="card"> <div class="icon">🎯</div> <h3>Aplicação na rotina</h3> <p> Conheça estratégias simples de organização para estudos e tarefas. </p> </div> </div> </section> <section id="modulos"> <div class="title"> <div class="eyebrow">Sua jornada</div> <h2>📚 Módulos do curso</h2> <p> Escolha um módulo para começar. Você pode acompanhar seu progresso abaixo. </p> </div> <div class="progress-card"> <div class="progress-top"> <strong>Seu progresso</strong> <span class="progress-percent" id="progressPercent">0%</span> </div> <div class="progress-bar"> <div class="progress-fill" id="progressFill"></div> </div> <div class="progress-info" id="progressInfo"> Comece pelo primeiro módulo. </div> </div> <div class="module-grid"> <div class="card module" data-module="1"> <div class="module-number">1</div> <h3>Entendendo o TDAH</h3> <p>Conceitos gerais, neurodesenvolvimento e diferenças individuais.</p> <div class="module-footer"> <span class="module-status">Módulo 1</span> <button class="complete-btn" onclick="openLesson(1)">Abrir aula</button> </div> </div> <div class="card module" data-module="2"> <div class="module-number">2</div> <h3>Desatenção</h3> <p>Dificuldades de atenção, organização e conclusão de tarefas.</p> <div class="module-footer"> <span class="module-status">Módulo 2</span> <button class="complete-btn" onclick="openLesson(2)">Abrir aula</button> </div> </div> <div class="card module" data-module="3"> <div class="module-number">3</div> <h3>Hiperatividade e impulsividade</h3> <p>Como esses sinais podem aparecer em diferentes situações.</p> <div class="module-footer"> <span class="module-status">Módulo 3</span> <button class="complete-btn" onclick="openLesson(3)">Abrir aula</button> </div> </div> <div class="card module" data-module="4"> <div class="module-number">4</div> <h3>TDAH e estudos</h3> <p>Planejamento, divisão de tarefas e redução de distrações.</p> <div class="module-footer"> <span class="module-status">Módulo 4</span> <button class="complete-btn" onclick="openLesson(4)">Abrir aula</button> </div> </div> <div class="card module" data-module="5"> <div class="module-number">5</div> <h3>TDAH ao longo da vida</h3> <p>Como necessidades e manifestações podem mudar ao longo da vida.</p> <div class="module-footer"> <span class="module-status">Módulo 5</span> <button class="complete-btn" onclick="openLesson(5)">Abrir aula</button> </div> </div> <div class="card module" data-module="6"> <div class="module-number">6</div> <h3>Avaliação e diagnóstico</h3> <p>O papel dos profissionais e a importância da história individual.</p> <div class="module-footer"> <span class="module-status">Módulo 6</span> <button class="complete-btn" onclick="openLesson(6)">Abrir aula</button> </div> </div> <div class="card module" data-module="7"> <div class="module-number">7</div> <h3>Tratamento e apoio</h3> <p>Possibilidades de acompanhamento conforme orientação profissional.</p> <div class="module-footer"> <span class="module-status">Módulo 7</span> <button class="complete-btn" onclick="openLesson(7)">Abrir aula</button> </div> </div> <div class="card module" data-module="8"> <div class="module-number">8</div> <h3>Mitos e fatos</h3> <p>Como analisar informações comuns sobre TDAH com mais cuidado.</p> <div class="module-footer"> <span class="module-status">Módulo 8</span> <button class="complete-btn" onclick="openLesson(8)">Abrir aula</button> </div> </div> </div> </section> <section id="aulas" class="lesson-area"> <div class="title"> <div class="eyebrow">Área de aprendizagem</div> <h2>🎓 Sua aula</h2> <p>Leia o conteúdo e avance quando estiver pronto.</p> </div> <div class="lesson"> <div class="lesson-header"> <small id="lessonNumber">MÓDULO 1</small> <h2 id="lessonTitle"></h2> </div> <div class="lesson-body" id="lessonBody"></div> <div class="lesson-nav"> <button class="prev" onclick="previousLesson()"> ← Aula anterior </button> <button class="next" onclick="nextLesson()"> Próxima aula → </button> </div> </div> </section> <section> <div class="title"> <div class="eyebrow">Para o dia a dia</div> <h2>💡 Dicas de organização</h2> <p>Algumas estratégias simples que podem ajudar na rotina.</p> </div> <div class="grid"> <div class="card"> <div class="icon">📝</div> <h3>Divida tarefas</h3> <p> Transforme uma tarefa grande em etapas menores e mais claras. </p> </div> <div class="card"> <div class="icon">⏰</div> <h3>Use lembretes</h3> <p> Calendários, alarmes e listas podem ajudar a acompanhar compromissos. </p> </div> <div class="card"> <div class="icon">🎧</div> <h3>Organize o ambiente</h3> <p> Reduza distrações quando precisar manter a atenção em uma atividade. </p> </div> </div> </section> <section id="faq"> <div class="title"> <div class="eyebrow">Dúvidas</div> <h2>❓ Perguntas frequentes</h2> </div> <div class="faq"> <details> <summary>TDAH é apenas falta de atenção?</summary> <p> Não. O TDAH pode envolver desatenção, hiperatividade e impulsividade, em combinações diferentes. </p> </details> <details> <summary>Existe um teste único para diagnosticar TDAH?</summary> <p> Não. A avaliação considera diferentes informações, incluindo história, sintomas, contexto e impacto na vida da pessoa. </p> </details> <details> <summary>Qualquer dificuldade de concentração significa TDAH?</summary> <p> Não necessariamente. Diversas situações podem estar relacionadas a dificuldades de concentração. </p> </details> <details> <summary>O curso substitui uma consulta?</summary> <p> Não. Este conteúdo é educativo e não substitui avaliação, diagnóstico ou tratamento profissional. </p> </details> </div> </section> <section> <div class="cta"> <h2>🧠 Continue sua jornada</h2> <p> Explore os módulos, leia as aulas e acompanhe seu progresso ao longo do curso. </p> <a class="btn primary" href="#modulos"> 🚀 Continuar curso </a> </div> </section> <section> <div class="card" style="border-left:5px solid #ffb52e;background:#fffaf0"> <h3>⚠️ Aviso importante</h3> <p> Este site é um material educativo introdutório. Ter alguns sinais relacionados ao TDAH não significa, por si só, ter o transtorno. Para avaliação individual, procure um profissional de saúde qualificado. </p> </div> </section> </main> <footer>
+<strong>🧠 Apoio TDAH</strong>
 
-<section>
-<div class="title"><h2>💡 Dicas de organização</h2></div>
-<div class="grid">
-<div class="card"><h3>Divida tarefas</h3><p>Transforme uma tarefa grande em etapas menores e mais claras.</p></div>
-<div class="card"><h3>Use lembretes</h3><p>Calendários, alarmes e listas podem ajudar a acompanhar compromissos.</p></div>
-<div class="card"><h3>Organize o ambiente</h3><p>Reduza distrações quando precisar manter a atenção em uma atividade.</p></div>
-</div>
-</section>
+<p style="margin-top:8px"> Material educativo • Curso introdutório sobre TDAH </p> <p style="font-size:12px;margin-top:14px;opacity:.65"> Conteúdo informativo e educativo. </p> </footer> <button id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})"> ↑ </button> <script>
+const lessons = {
 
-<section id="faq" class="faq">
-<div class="title"><h2>❓ Perguntas frequentes</h2></div>
-<details><summary>TDAH é apenas falta de atenção?</summary><p>Não. O TDAH pode envolver desatenção, hiperatividade e impulsividade, em combinações diferentes.</p></details>
-<details><summary>Existe um teste único para diagnosticar TDAH?</summary><p>Não. A avaliação considera história, sintomas, contexto e impacto na vida da pessoa.</p></details>
-<details><summary>Qualquer pessoa com dificuldade de concentração tem TDAH?</summary><p>Não necessariamente. Várias situações e condições podem causar dificuldades de concentração.</p></details>
-<details><summary>O curso substitui uma consulta?</summary><p>Não. O conteúdo é educativo e não substitui avaliação, diagnóstico ou tratamento profissional.</p></details>
-</section>
+1:{
+title:"Entendendo o TDAH",
+body:`
 
-<section>
-<div class="note"><b>⚠️ Aviso importante:</b> este site é um material educativo introdutório. Ter alguns sinais relacionados ao TDAH não significa, por si só, ter o transtorno. Para avaliação individual, procure um profissional de saúde qualificado.</div>
-</section>
-</main>
+<h3>O que é TDAH?</h3> <p> TDAH significa Transtorno do Déficit de Atenção com Hiperatividade. É uma condição do neurodesenvolvimento que pode estar associada a dificuldades persistentes de atenção, impulsividade e/ou hiperatividade. </p> <h3>Cada pessoa pode apresentar características diferentes</h3> <p> Os sinais e o impacto na vida cotidiana podem variar bastante. Por isso, não existe uma única forma de vivenciar o TDAH. </p> <div class="highlight"> 💡 <strong>Ideia principal:</strong> conhecer o TDAH ajuda a compreender melhor as dificuldades, mas somente uma avaliação adequada pode determinar se uma pessoa apresenta o transtorno. </div> <h3>O que observar?</h3> <ul> <li>Dificuldades persistentes de atenção.</li> <li>Problemas de organização ou gerenciamento de tarefas.</li> <li>Impulsividade ou dificuldade para esperar.</li> <li>Hiperatividade em algumas pessoas.</li> </ul> ` },
+2:{
+title:"Desatenção",
+body:`
 
-<footer>
-<b>🧠 Apoio TDAH</b><br>
-Material educativo • Curso introdutório sobre TDAH
-</footer>
-</body>
-</html>
+<h3>O que significa desatenção?</h3> <p> Desatenção não significa simplesmente "não prestar atenção". Pode envolver dificuldade para manter o foco, organizar atividades, acompanhar instruções ou terminar tarefas. </p> <h3>Exemplos do cotidiano</h3> <ul> <li>Esquecer compromissos ou objetos.</li> <li>Perder o foco durante uma atividade.</li> <li>Ter dificuldade para organizar tarefas.</li> <li>Começar atividades e não conseguir concluí-las.</li> </ul> <div class="highlight"> 💡 <strong>Importante:</strong> dificuldades de atenção podem acontecer por vários motivos. Elas, isoladamente, não significam TDAH. </div> <h3>Uma estratégia útil</h3> <p> Divida uma tarefa grande em pequenas etapas e marque cada etapa à medida que for concluída. </p> ` },
+3:{
+title:"Hiperatividade e impulsividade",
+body:`
+
+<h3>O que é hiperatividade?</h3> <p> Hiperatividade pode envolver uma necessidade maior de movimento, inquietação ou dificuldade para permanecer parado em determinadas situações. </p> <h3>E a impulsividade?</h3> <p> Pode envolver agir ou responder rapidamente sem esperar o momento adequado, interromper outras pessoas ou ter dificuldade para controlar determinadas respostas. </p> <h3>As manifestações variam</h3> <p> Nem todas as pessoas apresentam as mesmas características ou na mesma intensidade. O contexto também pode influenciar a forma como os sinais aparecem. </p> <div class="highlight"> 💡 <strong>Ideia principal:</strong> comportamento isolado não é suficiente para estabelecer um diagnóstico. </div> ` },
+4:{
+title:"TDAH e estudos",
+body:`
+
+<h3>Por que estudar pode ser difícil?</h3> <p> Algumas pessoas com dificuldades de atenção podem ter problemas para iniciar, organizar ou manter uma atividade por muito tempo. </p> <h3>Estratégias de organização</h3> <ul> <li>Divida o conteúdo em blocos menores.</li> <li>Use um cronograma simples.</li> <li>Coloque o celular longe durante períodos de estudo.</li> <li>Use alarmes para lembrar o início e o fim de uma tarefa.</li> <li>Faça pequenas pausas planejadas.</li> </ul> <div class="highlight"> 🎯 <strong>Experimente:</strong> em vez de pensar "preciso estudar tudo", defina uma tarefa específica, como "ler duas páginas". </div> <h3>O objetivo</h3> <p> A organização deve tornar a tarefa mais clara e possível de começar. </p> ` },
+5:{
+title:"TDAH ao longo da vida",
+body:`
+
+<h3>O TDAH pode mudar com o tempo?</h3> <p> As manifestações e as necessidades de uma pessoa podem mudar ao longo das diferentes fases da vida. </p> <h3>Infância, adolescência e vida adulta</h3> <p> As responsabilidades, o ambiente e as exigências mudam. Por isso, as dificuldades percebidas em uma fase podem ser diferentes das observadas em outra. </p> <h3>Adaptação</h3> <p> Estratégias de organização podem precisar ser adaptadas conforme a rotina e as responsabilidades da pessoa. </p> <div class="highlight"> 💡 <strong>Importante:</strong> uma avaliação individual considera a história da pessoa e o contexto em que os sintomas aparecem. </div> ` },
+6:{
+title:"Avaliação e diagnóstico",
+body:`
+
+<h3>Como funciona uma avaliação?</h3> <p> O diagnóstico de TDAH não deve ser baseado em um teste único. A avaliação é realizada por profissional qualificado e considera diversas informações. </p> <h3>O que pode ser considerado?</h3> <ul> <li>História de desenvolvimento.</li> <li>Descrição dos sintomas.</li> <li>Contextos em que as dificuldades aparecem.</li> <li>Impacto na vida cotidiana.</li> <li>Outras possíveis explicações para os sintomas.</li> </ul> <div class="highlight"> ⚠️ <strong>Não faça autodiagnóstico:</strong> identificar alguns sinais na internet não é suficiente para concluir que alguém possui TDAH. </div> <h3>Quando procurar ajuda?</h3> <p> Quando dificuldades persistentes estiverem causando prejuízo significativo nos estudos, trabalho, relacionamentos ou rotina, pode ser importante buscar avaliação profissional. </p> ` },
+7:{
+title:"Tratamento e apoio",
+body:`
+
+<h3>Existe tratamento?</h3> <p> Existem diferentes formas de acompanhamento para pessoas com TDAH. A abordagem adequada depende das características e necessidades individuais. </p> <h3>O acompanhamento pode envolver</h3> <ul> <li>Orientação e acompanhamento profissional.</li> <li>Estratégias comportamentais e de organização.</li> <li>Adaptações na rotina.</li> <li>Outras abordagens definidas por profissionais qualificados.</li> </ul> <h3>Rede de apoio</h3> <p> Família, escola, trabalho e profissionais podem fazer parte de uma rede de apoio, dependendo da situação de cada pessoa. </p> <div class="highlight"> 💡 <strong>Importante:</strong> medicamentos, quando considerados, devem ser avaliados e acompanhados por profissional habilitado. </div> ` },
+8:{
+title:"Mitos e fatos",
+body:`
+
+<h3>Mito: "TDAH é apenas preguiça."</h3> <p> <strong>Fato:</strong> dificuldades relacionadas ao TDAH não devem ser reduzidas a preguiça ou falta de esforço. </p> <h3>Mito: "Todo mundo que se distrai tem TDAH."</h3> <p> <strong>Fato:</strong> distração pode acontecer por diversos motivos. O diagnóstico depende de uma avaliação adequada. </p> <h3>Mito: "TDAH desaparece simplesmente porque a pessoa cresceu."</h3> <p> <strong>Fato:</strong> as manifestações podem mudar ao longo da vida, mas isso precisa ser analisado individualmente. </p> <h3>Mito: "Um teste na internet confirma TDAH."</h3> <p> <strong>Fato:</strong> questionários online podem fornecer informações, mas não substituem uma avaliação profissional. </p> <div class="highlight"> 🎓 <strong>Conclusão:</strong> procure informações de fontes confiáveis e profissionais qualificados antes de tirar conclusões sobre saúde. </div> ` }
+};
+
+let currentLesson=1;
+
+let completed=JSON.parse(
+localStorage.getItem("tdahProgress") || "[]"
+);
+
+function openLesson(number){
+
+currentLesson=number;
+
+const area=document.querySelector(".lesson-area");
+
+area.classList.add("active");
+
+document.getElementById("lessonNumber").textContent=
+"MÓDULO "+number;
+
+document.getElementById("lessonTitle").textContent=
+lessons[number].title;
+
+document.getElementById("lessonBody").innerHTML=
+lessons[number].body;
+
+area.scrollIntoView({
+behavior:"smooth",
+block:"start"
+});
+
+}
+
+function markComplete(number){
+
+if(!completed.includes(number)){
+completed.push(number);
+}
+
+localStorage.setItem(
+"tdahProgress",
+JSON.stringify(completed)
+);
+
+updateProgress();
+
+}
+
+function nextLesson(){
+
+markComplete(currentLesson);
+
+if(currentLesson<8){
+
+currentLesson++;
+
+openLesson(currentLesson);
+
+}else{
+
+document.getElementById("lessonBody").innerHTML+=`
+
+<div class="highlight"> 🎉 <strong>Parabéns!</strong> Você chegou ao final dos 8 módulos. Continue revisando o conteúdo sempre que quiser. </div> `;
+updateProgress();
+
+}
+
+}
+
+function previousLesson(){
+
+if(currentLesson>1){
+
+currentLesson--;
+
+openLesson(currentLesson);
+
+}
+
+}
+
+function updateProgress(){
+
+const total=8;
+const amount=completed.length;
+const percent=Math.round((amount/total)*100);
+
+document.getElementById("progressFill").style.width=
+percent+"%";
+
+document.getElementById("progressPercent").textContent=
+percent+"%";
+
+document.getElementById("heroProgress").style.width=
+percent+"%";
+
+document.getElementById("heroText").textContent=
+amount+" de 8 módulos concluídos";
+
+if(amount===0){
+
+document.getElementById("progressInfo").textContent=
+"Comece pelo primeiro módulo.";
+
+}else if(amount===8){
+
+document.getElementById("progressInfo").textContent=
+"🎉 Parabéns! Você concluiu todos os módulos!";
+
+}else{
+
+document.getElementById("progressInfo").textContent=
+"Você concluiu "+amount+
+" módulo"+(amount>1?"s":"")+". Continue avançando!";
+
+}
+
+document.querySelectorAll(".module").forEach(module=>{
+
+const number=Number(module.dataset.module);
+
+const button=module.querySelector(".complete-btn");
+
+const status=module.querySelector(".module-status");
+
+if(completed.includes(number)){
+
+module.classList.add("completed");
+
+status.textContent="✓ Concluído";
+
+}else{
+
+module.classList.remove("completed");
+
+status.textContent="Módulo "+number;
+
+}
+
+});
+
+}
+
+const topBtn=document.getElementById("topBtn");
+
+window.addEventListener("scroll",()=>{
+
+if(window.scrollY>500){
+
+topBtn.style.display="block";
+
+}else{
+
+topBtn.style.display="none";
+
+}
+
+});
+
+updateProgress();
+
+</script> </body> </html>
